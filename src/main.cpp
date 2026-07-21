@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <nvs_flash.h>
 #include <BLEDevice.h>
 #include <BLEHIDDevice.h>
 #include <HIDTypes.h>
@@ -22,6 +23,7 @@ class MyCallbacks : public BLEServerCallbacks {
 
 void setup() {
   Serial.begin(115200);
+  nvs_flash_init();
 
   BLEDevice::init("esp32");
 
